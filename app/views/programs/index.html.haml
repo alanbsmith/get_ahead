@@ -1,0 +1,27 @@
+.container
+  .jumbotron
+    %h1 Head Start Facility Listings
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Facility Name
+        %th Address
+        %th City
+        %th State
+        %th Zipcode
+        %th Phone
+        %th Program Type
+        %th Enrollment
+        %th Application
+    %tbody
+      -@programs.each do |p|
+        %tr
+          %td= p.facility_name
+          %td= "#{p.street_address1} #{p.street_address2}"
+          %td= p.city
+          %td= p.state
+          %td= p.zipcode
+          %td= "#{p.phone} #{p.ext}"
+          %td= p.program_type
+          %td= p.enrollment
+          %td Link to Apply
