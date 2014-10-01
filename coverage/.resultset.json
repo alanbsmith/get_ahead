@@ -1,0 +1,43 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/programs_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/static_pages_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/models/program.rb": [
+        1,
+        null,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/programs_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1412196891
+  }
+}

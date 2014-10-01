@@ -1,6 +1,6 @@
 .container
   .jumbotron
-    %h1 Head Start Facility Listings
+    %h1 Head Start Programs
   %table.table.table-hover
     %thead
       %tr
@@ -16,7 +16,7 @@
     %tbody
       -@programs.each do |p|
         %tr
-          %td= p.facility_name
+          %td= link_to "#{p.facility_name}", program_path(p) 
           %td= "#{p.street_address1} #{p.street_address2}"
           %td= p.city
           %td= p.state
