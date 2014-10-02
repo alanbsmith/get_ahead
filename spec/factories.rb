@@ -8,6 +8,6 @@ FactoryGirl.define do
     zipcode         "80211"
     phone           "303-742-0828"
     program_type    "Administrative Offices"
-    enrollment      0
+    enrollment      10
   end
 end

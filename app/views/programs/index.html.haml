@@ -1,27 +1,12 @@
 .container
   .jumbotron
     %h1 Head Start Programs
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Facility Name
-        %th Address
-        %th City
-        %th State
-        %th Zipcode
-        %th Phone
-        %th Program Type
-        %th Enrollment
-        %th Application
-    %tbody
-      -@programs.each do |p|
-        %tr
-          %td= link_to "#{p.facility_name}", program_path(p) 
-          %td= "#{p.street_address1} #{p.street_address2}"
-          %td= p.city
-          %td= p.state
-          %td= p.zipcode
-          %td= "#{p.phone} #{p.ext}"
-          %td= p.program_type
-          %td= p.enrollment
-          %td Link to Apply
+.row
+  .col-md-9.col-md-offset-2
+    -@programs.each do |p|
+      -unless there_are_no_openings?(p)
+        .col-sm-6.col-md-5
+          .thumbnail
+            %h3= p.facility_name
+            .caption
+              = link_to "View", program_path(p), class: "btn-lg btn btn-info"

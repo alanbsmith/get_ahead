@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+  include ProgramsHelper
 
   def index
     @programs = Program.all
