@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :programs, only: [:index, :show]
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: "get"
+  match 'auth/failure', to: redirect('/'),   via: "get"
+  match 'signout', to: 'sessions#destroy', via: "get"
+
   # Example of regular route: 
   #   get 'products/:id' => 'catalog#view'
 
