@@ -1,12 +1,11 @@
 .container
   .jumbotron
     %h1 Head Start Programs
-.row
-  .col-md-9.col-md-offset-2
-    -@programs.each do |p|
-      -unless there_are_no_openings?(p)
-        .col-sm-6.col-md-5
-          .thumbnail
-            %h3= p.facility_name
-            .caption
-              = link_to "View", program_path(p), class: "btn-lg btn btn-info"
+.container
+  -@programs.each do |p|
+    -unless there_are_no_openings?(p)
+      .col-md-4
+        .thumbnail
+          %h4= p.facility_name
+          .caption
+            = link_to "View", program_path(p), class: "btn-lg btn btn-info"

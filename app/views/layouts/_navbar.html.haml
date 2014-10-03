@@ -1,0 +1,28 @@
+.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => root_path} Get Ahead
+    .navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "#"} Eligibility
+        %li
+          %a{:href => "#"} Map
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %li
+            %a= "Hello, #{ current_user.name }!"
+          %li
+            %a{:href => "#"} Your Favorites
+          %li
+            %a{ :href => signout_path } Sign Out
+        - else
+          %li
+            %a{:href => "#"} Your Favorites
+          %li
+            %a{:href => "/auth/google_oauth2"} Sign in
