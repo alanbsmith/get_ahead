@@ -1,7 +1,9 @@
-.container
+.col-md-9.col-md-offset-2
   .jumbotron
     %h1 Head Start Programs
-.container
+    = search_form_for @q do |f|
+      \#{f.search_field :facility_name_cont, class: "form-control", placeholder: "Seach by name"}
+
   -@programs.each do |p|
     -unless there_are_no_openings?(p)
       .col-md-4

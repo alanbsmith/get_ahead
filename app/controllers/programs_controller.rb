@@ -2,7 +2,8 @@ class ProgramsController < ApplicationController
   include ProgramsHelper
 
   def index
-    @programs = Program.all
+    @q = Program.search(params[:q])
+    @programs = @q.result(distinct: true)
   end
 
   def show
