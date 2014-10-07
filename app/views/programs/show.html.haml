@@ -1,3 +1,5 @@
 .container
   .jumbotron
     %h1= @program.facility_name
+  = button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-primary"
+  

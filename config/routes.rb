@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :programs, only: [:index, :show]
+  resources :favorites, except: [:new] do
+    member do
+      post :add_program
+      post :remove_program
+    end
+  end
 
   match 'auth/:provider/callback', to: 'sessions#create', via: "get"
   match 'auth/failure', to: redirect('/'),   via: "get"

@@ -8,5 +8,6 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
+    @favorite = favorite
   end
 end
