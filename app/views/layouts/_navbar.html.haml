@@ -18,7 +18,7 @@
           %li
             %a= "Hello, #{ current_user.name }!"
           %li
-            %a{:href => "#"} Your Favorites
+            %a{:href => "favorites"} Your Favorites
           %li
             %a{ :href => signout_path } Sign Out
         - else
