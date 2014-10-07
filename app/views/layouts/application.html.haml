@@ -7,4 +7,8 @@
     = csrf_meta_tags
   %body
     = render partial: 'layouts/navbar'
+    .alert-background.text-center
+      - flash.each do |type, message|
+        %div{:class => "alert alert-#{type}"}
+          = message
     = yield

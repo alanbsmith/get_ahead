@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
       favorite.user = current_user
       favorite.save
     end
-    redirect_to favorites_path
+    redirect_to favorites_path, alert: "#{program.facility_name} has been added to your favorites!"
   end
 
   def remove_program

@@ -5,11 +5,15 @@
         1,
         null
       ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/favorites_helper.rb": [
+        1,
+        null
+      ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/programs_helper.rb": [
         1,
         null,
         1,
-        1,
+        2,
         null,
         null
       ],
@@ -25,8 +29,38 @@
         1,
         null
       ],
-      "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/users_controller.rb": [
+      "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/favorites_controller.rb": [
         1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/application_controller.rb": [
@@ -38,11 +72,40 @@
         1,
         null,
         1,
-        2,
+        6,
         null,
         1,
         null,
+        1,
+        7,
         null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/users_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/models/favorite_program.rb": [
+        1,
+        1,
+        1,
+        1,
         null
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/models/user.rb": [
@@ -60,6 +123,8 @@
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/models/program.rb": [
         1,
+        1,
+        1,
         null,
         null
       ],
@@ -68,15 +133,36 @@
         1,
         null,
         1,
-        1,
+        2,
+        2,
         null,
         null,
         1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/models/favorite.rb": [
         1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
         null,
         null
       ]
     },
-    "timestamp": 1412360493
+    "timestamp": 1412646122
   }
 }

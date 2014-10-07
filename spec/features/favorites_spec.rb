@@ -9,10 +9,10 @@ describe "viewing favorites", type: :feature do
   it "can add programs to my favorites" do
     visit programs_path
     click_link("View")
-    click_link("Add to Favorites")
-    expect(page).to have_content("#{@program.facility_name} has been added to your favorites")
+    click_button("Add to Favorites")
 
-    visit favorites_path
+    expect(current_path).to eq(favorites_path)
+    expect(page).to have_content("#{@program.facility_name} has been added to your favorites")
     expect(page).to have_content("#{@program.facility_name}")
   end
 end
