@@ -16,6 +16,29 @@
  *= require_tree .
  *= require_self
  */
+
+.jumbotron {
+   background: rgba(235, 235, 235, 0.9); 
+}
+
+.thumbnail {
+   background: rgba(235, 235, 235, 0.9); 
+}
+
+.nav-tabs {
+  opacity: 0.5;
+}
+
+.navbar{
+   background: rgba(235, 235, 235, 0.8); 
+}
+
+ body {
+  background-image: url("http://www.ambitiouskids.org/wp-content/uploads/2013/07/photodune-4380917-happy-faces-par1-1200x661.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+ }
+
 .alert-error {
 background-color: #f2dede;
 border-color: #eed3d7;

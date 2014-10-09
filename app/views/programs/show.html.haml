@@ -2,7 +2,7 @@
   .container-fluid
   .jumbotron
     %h1= @program.facility_name
-    =button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-info btn-lg"
+    =button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-warning btn-lg"
   .row
     .col-md-4
       .thumbnail
@@ -29,7 +29,7 @@
                   =f.text_area :body, class: 'form-control', placeholder: "Your Message"
                   =f.hidden_field :to, value: @program.email
                   %br
-                  =f.submit "Send", class: "btn btn-block btn-info", href: new_notification_path
+                  =f.submit "Send", class: "btn btn-block btn-warning", href: new_notification_path
               -else
                 %h4.text-center Sign in to send an email
                 %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
