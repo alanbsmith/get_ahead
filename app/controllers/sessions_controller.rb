@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
 
   def create
     user = User.from_omniauth(env["omniauth.auth"])
+    determine_a_welcome_package(user)
+    user.save!
     session[:user_id] = user.id
-    redirect_to root_url, notice: "Signed in!"
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Signed out!"
+    redirect_to :back, notice: "Signed out!"
   end
 
 end

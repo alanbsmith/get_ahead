@@ -27,6 +27,5 @@ private
     session[:favorite_id] = current_favorite.id 
     current_favorite
   end
-
 end
 

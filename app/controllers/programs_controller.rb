@@ -9,5 +9,6 @@ class ProgramsController < ApplicationController
   def show
     @program = Program.find(params[:id])
     @favorite = favorite
+    @notification = Notification.new
   end
 end

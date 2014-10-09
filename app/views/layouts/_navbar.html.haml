@@ -1,5 +1,5 @@
-.navbar.navbar-masthead
-  .container
+.container
+  .navbar.navbar-default
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
@@ -16,13 +16,15 @@
       %ul.nav.navbar-nav.navbar-right
         - if current_user
           %li
+            %img.profile-image.img-circle{:src => current_user.image}
+          %li
             %a= "Hello, #{ current_user.name }!"
           %li
-            %a{:href => "favorites"} Your Favorites
+            %a{:href => favorites_path } Your Favorites
           %li
             %a{ :href => signout_path } Sign Out
         - else
           %li
-            %a{:href => "#"} Your Favorites
+            %a{:href => favorites_path } Your Favorites
           %li
             %a{:href => "/auth/google_oauth2"} Sign in

@@ -1,5 +1,65 @@
 .container
+  .container-fluid
   .jumbotron
     %h1= @program.facility_name
-  = button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-primary"
-  
+    =button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-info btn-lg"
+  .row
+    .col-md-4
+      .thumbnail
+        %h2.text-center Contact
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#email", role: "tab"}
+              %h4 Email
+          %li
+            %a{"data-toggle" => "tab", :href => "#phone", role: "tab"}
+              %h4 Phone & Fax
+          %li
+            %a{"data-toggle" => "tab", :href => "#messages", role: "tab"}
+              %h4 Address
+        .caption
+          .tab-content
+            #email.tab-pane.active
+
+              -if current_user
+                =form_for(@notification, html: { class: 'form-horizontal' }) do |f|
+                  =f.label :subject
+                  =f.text_field :subject, class: 'form-control', placeholder: "Hello"
+                  =f.label "Message"
+                  =f.text_area :body, class: 'form-control', placeholder: "Your Message"
+                  =f.hidden_field :to, value: @program.email
+                  %br
+                  =f.submit "Send", class: "btn btn-block btn-info", href: new_notification_path
+              -else
+                %h4.text-center Sign in to send an email
+                %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
+            #messages.tab-pane
+              %h5 Address
+              = "#{@program.street_address1} #{@program.street_address2}"
+              = "#{@program.city} #{@program.state} #{@program.zipcode}"
+            #phone.tab-pane
+              %h5 Phone
+              = "#{@program.phone}"
+              %h5 Fax
+              = "#{@program.fax}"
+
+    .col-md-8.col-md
+      .thumbnail
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#description", role: "tab"}
+              %h3 Description
+          %li
+            %a{"data-toggle" => "tab", :href => "#profile", role: "tab"}
+              %h3 Philosophy
+          %li
+            %a{"data-toggle" => "tab", :href => "#settings", role: "tab"}
+              %h3 Ratings & Reviews
+          
+        .caption
+          .tab-content
+            #description.tab-pane.active
+              Catholic Charities Child Care and Head Start Services mission is to promote family and child development through a partnership which involves staff, families, children and the community. Our vision is to provide quality Child Care and early childhood programs by using developmentally appropriate practices in a safe and nurturing environment. By honoring and supporting children and their families, we wish to help them reach their highest potential. We are committed to our childrens futures and strive to provide quality care and education. Our goals are achieved by adhering strictly to state licensing standards and Head Start Performance Standards. We continuously strive to improve our services by aspiring to the Colorado Quality Standards of Early Childhood Care, Education, National Association for the Education of Young Children (NAEYC) Accreditation Standards, and the Council on Accreditation Standards.
+            #profile.tab-pane
+              We believe that each child is a unique and priceless gift entrusted to our care. We respect and value each individual and guide and support their learning experiences. Our goal is to promote self-sufficiency with families and social competence in children.
+            #settings.tab-pane Five star
