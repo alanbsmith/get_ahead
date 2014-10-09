@@ -19,6 +19,23 @@
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/sessions_helper.rb": [
         1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/static_pages_helper.rb": [
@@ -27,6 +44,7 @@
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/helpers/users_helper.rb": [
         1,
+        null,
         null
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/favorites_controller.rb": [
@@ -72,19 +90,19 @@
         1,
         null,
         1,
-        6,
+        10,
         null,
         1,
         null,
         1,
-        7,
+        9,
         null,
         null,
         1,
         null,
         1,
-        4,
-        2,
+        5,
+        3,
         null,
         null,
         1,
@@ -92,13 +110,31 @@
         2,
         2,
         2,
-        null,
         null,
         null,
         null
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/controllers/users_controller.rb": [
         1,
+        null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/mailers/user_notifier.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/alanbsmith/turing_projects/get_ahead/app/models/favorite_program.rb": [
@@ -112,6 +148,7 @@
         1,
         null,
         1,
+        0,
         0,
         0,
         0,
@@ -138,8 +175,9 @@
         null,
         null,
         1,
-        2,
-        2,
+        3,
+        3,
+        3,
         null,
         null
       ],
@@ -161,8 +199,16 @@
         0,
         null,
         null
+      ],
+      "/Users/alanbsmith/turing_projects/get_ahead/app/models/notification.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1412646122
+    "timestamp": 1412883024
   }
 }
