@@ -6,7 +6,7 @@
   .row
     .col-md-4
       .thumbnail
-        %h2.text-center Contact
+        %h1.text-center Contact
         %ul.nav.nav-tabs{:role => "tablist"}
           %li.active
             %a{"data-toggle" => "tab", :href => "#email", role: "tab"}
@@ -23,9 +23,9 @@
 
               -if current_user
                 =form_for(@notification, html: { class: 'form-horizontal' }) do |f|
-                  =f.label :subject
+                  %h4=f.label :subject
                   =f.text_field :subject, class: 'form-control', placeholder: "Hello"
-                  =f.label "Message"
+                  %h4=f.label "Message"
                   =f.text_area :body, class: 'form-control', placeholder: "Your Message"
                   =f.hidden_field :to, value: @program.email
                   %br
@@ -34,14 +34,14 @@
                 %h4.text-center Sign in to send an email
                 %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
             #messages.tab-pane
-              %h5 Address
-              = "#{@program.street_address1} #{@program.street_address2}"
-              = "#{@program.city} #{@program.state} #{@program.zipcode}"
+              %h4 Address
+              %h5= "#{@program.street_address1} #{@program.street_address2}"
+              %h5= "#{@program.city} #{@program.state} #{@program.zipcode}"
             #phone.tab-pane
-              %h5 Phone
-              = "#{@program.phone}"
-              %h5 Fax
-              = "#{@program.fax}"
+              %h4 Phone
+              %h5= "#{@program.phone} #{@program.ext}"
+              %h4 Fax
+              %h5= @program.fax
 
     .col-md-8.col-md
       .thumbnail
