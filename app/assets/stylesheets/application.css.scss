@@ -17,12 +17,25 @@
  *= require_self
  */
 
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+    height: 200px;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 .jumbotron {
-   background: rgba(235, 235, 235, 0.9); 
+   background: rgba(255, 255, 255, 0.95);
+   height: 300px; 
 }
 
 .thumbnail {
-   background: rgba(235, 235, 235, 0.9); 
+   background: rgba(255, 255, 255, 0.95);
 }
 
 .nav-tabs {
@@ -30,7 +43,8 @@
 }
 
 .navbar{
-   background: rgba(235, 235, 235, 0.8); 
+   background: rgba(255, 255, 255, 0.95);
+   height: 60px;
 }
 
  body {

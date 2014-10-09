@@ -8,7 +8,7 @@ ActionMailer::Base.delivery_method = :smtp
 
 ActionMailer::Base.smtp_settings = {
   :user_name            => 'alanbsmith',
-  :password             => 'C1MMnJN0rJeQECGXOdIp77G2ZD2M0Ow0w7mWVVngd4ZApeCyeo',
+  :password             => Figaro.env.sendgrid_password,
   :domain               => 'localhost.com',
   :address              => 'smtp.sendgrid.net',
   :port                 => 587,

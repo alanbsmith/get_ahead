@@ -4,8 +4,8 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore omniauth files
-/config/initializers/omniauth.rb
+# Ignore application.yml files
+/config/application.yml
 
 # Ignore bundler config.
 /.bundle
