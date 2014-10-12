@@ -1,0 +1,15 @@
+.container
+  %h1 New Program
+  =form_for@program do |f|
+    .form-signin.col-md-3
+      =f.label :facility_name
+      =f.text_field :facility_name, class: "form-control"
+      =f.label :street_address1
+      =f.text_field :street_address1, class: "form-control"
+      =f.label :enrollment
+      =f.text_field :enrollment, class: "form-control"
+      =f.label :latitude
+      =f.text_field :latitude, class: "form-control"
+      =f.label :longitude
+      =f.text_field :longitude, class: "form-control"
+      =f.submit class: "btn btn-warning"

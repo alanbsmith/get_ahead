@@ -5,12 +5,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root "pages#home"
 
+
   resources :notifications, only: [:new, :create]
-  resources :programs, only: [:index, :show]
+  resources :programs
   resources :favorites, except: [:new] do
     member do
       post :add_program
       post :remove_program
+    end
+  end
+
+  resources :pages, only: [:home] do
+    collection do
+      get :map
+      get :eligibility
     end
   end
 

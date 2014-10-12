@@ -15,14 +15,27 @@
  *
  *= require_tree .
  *= require_self
+
  */
+
+.clearfix-buffer {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+    height: 60px;
+  }
+  &:after {
+    clear: both;
+  }
+}
 
 .clearfix {
   &:before,
   &:after {
     content: " ";
     display: table;
-    height: 200px;
+    height: 250px;
   }
   &:after {
     clear: both;
@@ -30,8 +43,14 @@
 }
 
 .jumbotron {
-   background: rgba(255, 255, 255, 0.95);
+   background: rgba(255, 255, 255, 1.0);
    height: 300px; 
+}
+
+.image {
+  content: url("http://superheroesofvictoria.org/wp-content/uploads/2014/02/superhero-kids-day.png");
+  width: 100%;
+  margin-top: -30px;
 }
 
 .thumbnail {
@@ -43,12 +62,28 @@
 }
 
 .navbar{
-   background: rgba(255, 255, 255, 0.95);
+   background: rgba(255, 255, 255, 1.0);
    height: 60px;
+   
+  .navbar-brand {
+    color: #FF6541;
+  }
 }
 
- body {
-  background-image: url("http://www.ambitiouskids.org/wp-content/uploads/2013/07/photodune-4380917-happy-faces-par1-1200x661.jpg");
+.navbar-default {.navbar-nav{
+    color: #FF6541
+    }
+}
+
+
+ body#homepage {
+  background-image: url("http://i.huffpost.com/gen/1413386/thumbs/o-BLACK-STUDENTS-facebook.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+ }
+
+ body#favorites {
+  background-image: url("http://superheroesofvictoria.org/wp-content/uploads/2014/02/superhero-kids-day.png");
   background-attachment: fixed;
   background-size: cover;
  }

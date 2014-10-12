@@ -7,6 +7,8 @@ task :import => [:environment] do
 
   CSV.foreach(file, :headers => true) do |row|
     Program.create({
+      :longitude       => row[0],
+      :latitude        => row[1],
       :facility_name   => row[3],
       :street_address1 => row[7],
       :street_address2 => row[8],
@@ -17,7 +19,8 @@ task :import => [:environment] do
       :ext             => row[13],
       :fax             => row[14],
       :program_type    => row[16],
-      :enrollment      => row[17]
+      :enrollment      => row[17],
+      
     })
   end
 

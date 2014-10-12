@@ -50,8 +50,8 @@
             %a{"data-toggle" => "tab", :href => "#description", role: "tab"}
               %h3 Description
           %li
-            %a{"data-toggle" => "tab", :href => "#profile", role: "tab"}
-              %h3 Philosophy
+            %a{"data-toggle" => "tab", :href => "#philosophy", role: "tab"}
+              %h3 Teaching Philosophy
           %li
             %a{"data-toggle" => "tab", :href => "#settings", role: "tab"}
               %h3 Ratings & Reviews
@@ -59,7 +59,14 @@
         .caption
           .tab-content
             #description.tab-pane.active
-              Catholic Charities Child Care and Head Start Services mission is to promote family and child development through a partnership which involves staff, families, children and the community. Our vision is to provide quality Child Care and early childhood programs by using developmentally appropriate practices in a safe and nurturing environment. By honoring and supporting children and their families, we wish to help them reach their highest potential. We are committed to our childrens futures and strive to provide quality care and education. Our goals are achieved by adhering strictly to state licensing standards and Head Start Performance Standards. We continuously strive to improve our services by aspiring to the Colorado Quality Standards of Early Childhood Care, Education, National Association for the Education of Young Children (NAEYC) Accreditation Standards, and the Council on Accreditation Standards.
-            #profile.tab-pane
-              We believe that each child is a unique and priceless gift entrusted to our care. We respect and value each individual and guide and support their learning experiences. Our goal is to promote self-sufficiency with families and social competence in children.
+              =@program.description
+            #philosophy.tab-pane
+              =@program.philosophy
             #settings.tab-pane Five star
+
+  = form_for @program do |f|
+    =f.label :description          
+    =f.text_area :description, class: 'form-control', placeholder: "description"
+    =f.label :philosophy         
+    =f.text_area :philosophy, class: 'form-control', placeholder: "philosophy"
+    =f.submit

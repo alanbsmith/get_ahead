@@ -1,18 +1,16 @@
+%body#favorites
 .container
   %h1 Your Favorites
-  - @favorites_list.each_with_index do |program, i|
-    #accordion.panel-group
-      .panel.panel-default
-        .panel-heading
-          %h4.panel-title
-            %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse#{i}"}
-              = program.facility_name
-            .panel-title.pull-right
-              =link_to "", program_path(program), class: "glyphicon glyphicon-eye-open"
-              =link_to "", root_path, class: "glyphicon glyphicon-envelope"
-              =link_to "", remove_program_favorite_path(favorite, program_id: program.id), method: "post", class: "glyphicon glyphicon-remove"
-        .panel-collapse.collapse{:id => "collapse#{i}"}
-          .panel-body
+  .row
+    .col-md-3
+      %h1 Your Favorites
+      - @favorites_list.each_with_index do |program, i|
+        .thumbnail
+          %h4= program.facility_name
+          %a.caption
+            =link_to "", program_path(program), class: "glyphicon glyphicon-eye-open"
+            =link_to "", root_path, class: "glyphicon glyphicon-envelope"
+            =link_to "", remove_program_favorite_path(favorite, program_id: program.id), method: "post", class: "glyphicon glyphicon-remove"
             %table
               %thead
                 %tr
@@ -25,5 +23,4 @@
 
           
 
-  
   

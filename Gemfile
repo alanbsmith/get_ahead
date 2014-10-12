@@ -17,6 +17,7 @@ gem 'spring',        group: :development
 gem 'ransack'
 gem 'mail_form'
 gem 'figaro'
+gem 'gmaps4rails', '~> 2.1.2'
 
 group :development, :test do
   gem 'pry'

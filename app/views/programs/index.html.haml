@@ -1,13 +1,18 @@
+.clearfix-buffer
 .container
   .jumbotron
     %h1 Head Start Programs
-    = search_form_for @q do |f|
-      \#{f.search_field :facility_name_cont, class: "form-control", placeholder: "Seach by name"}
+    / = search_form_for @q do |f|
+    /   \#{f.search_field :facility_name_cont, class: "form-control", placeholder: "Seach by name"}
 
   -@programs.each do |p|
     -unless there_are_no_openings?(p)
       .col-md-4
         .thumbnail
-          %h4= p.facility_name
           .caption
+            %h4= p.facility_name
+            %h5="Program Type: #{p.program_type}"
+            %h5="Enrollment: #{p.enrollment}"
             = link_to "View", program_path(p), class: "btn btn-warning"
+
+
