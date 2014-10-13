@@ -1,0 +1,35 @@
+.clearfix-buffer
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for [:admin, @program] do |f|
+        %ul
+        - @program.errors.full_messages.each do |error|
+          %li= error
+
+        =f.label "School Name"          
+        =f.text_field :facility_name, class: 'form-control'
+        =f.label "Address Line 1"          
+        =f.text_field :street_address1, class: 'form-control'
+        =f.label "Address Line 2"          
+        =f.text_field :street_address2, class: 'form-control'
+        =f.label :city          
+        =f.text_field :city, class: 'form-control'
+        =f.label :state          
+        =f.text_field :state, class: 'form-control'
+        =f.label :zipcode          
+        =f.text_field :zipcode, class: 'form-control'
+        =f.label :phone          
+        =f.text_field :phone, class: 'form-control'
+        =f.label "extension"          
+        =f.text_field :ext, class: 'form-control'
+        =f.label :program_type          
+        =f.text_field :program_type, class: 'form-control'
+        =f.label :enrollment          
+        =f.text_field :enrollment, class: 'form-control'
+        =f.label :description          
+        =f.text_area :description, class: 'form-control'
+        =f.label :philosophy         
+        =f.text_area :philosophy, class: 'form-control'
+        =f.submit
+.clearfix-buffer

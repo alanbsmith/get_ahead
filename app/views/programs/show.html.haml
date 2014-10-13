@@ -1,3 +1,5 @@
+%body#show
+.clearfix-buffer
 .container
   .container-fluid
   .jumbotron
@@ -63,10 +65,3 @@
             #philosophy.tab-pane
               =@program.philosophy
             #settings.tab-pane Five star
-
-  = form_for @program do |f|
-    =f.label :description          
-    =f.text_area :description, class: 'form-control', placeholder: "description"
-    =f.label :philosophy         
-    =f.text_area :philosophy, class: 'form-control', placeholder: "philosophy"
-    =f.submit

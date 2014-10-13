@@ -1,0 +1,19 @@
+%body#show
+.clearfix-buffer
+.container
+  .jumbotron
+    %h1 Your Programs
+  .row
+    -@programs.each do |program|
+      -unless there_are_no_openings?(program)
+        .col-md-4
+          .thumbnail
+            .caption
+              %h4=program.facility_name
+              %h5="Program Type: #{program.program_type}"
+              %h5="Enrollment: #{program.enrollment}"
+            .caption.text-center
+              =link_to "View", program_path(program)
+              =link_to "Edit", edit_admin_program_path(program)
+              =link_to "Remove", admin_program_path(program), method: "destroy"
+

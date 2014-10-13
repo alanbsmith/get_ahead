@@ -7,12 +7,16 @@ Rails.application.routes.draw do
 
 
   resources :notifications, only: [:new, :create]
-  resources :programs
+  resources :programs, only: [:index, :show]
   resources :favorites, except: [:new] do
     member do
       post :add_program
       post :remove_program
     end
+  end
+
+  namespace :admin do
+    resources :programs, only: [:index, :show, :edit, :update, :destroy]
   end
 
   resources :pages, only: [:home] do
