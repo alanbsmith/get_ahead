@@ -7,8 +7,13 @@ Rails.application.routes.draw do
 
 
   resources :notifications, only: [:new, :create]
-  resources :programs, only: [:index, :show]
-  resources :favorites, except: [:new] do
+  resources :programs, only: [:index, :show] do
+    collection do
+      get :claim_your
+    end
+  end
+
+  resources :favorites, except: [:new, :destroy] do
     member do
       post :add_program
       post :remove_program

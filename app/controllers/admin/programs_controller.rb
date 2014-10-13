@@ -12,7 +12,7 @@ class Admin::ProgramsController<AdminController
   end
 
   def update
-    @program.update!(program_params)
+    @program.update(program_params)
     redirect_to admin_programs_path, notice: "Your program has been successfully updated"
   end
 

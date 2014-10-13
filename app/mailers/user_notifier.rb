@@ -10,7 +10,7 @@ class UserNotifier < ActionMailer::Base
       )
   end
 
-  def contact_program(to,from,subject,body)
+  def notify(to,from,subject,body)
     mail(to: to, from: from, subject: subject, body: body)
   end
 

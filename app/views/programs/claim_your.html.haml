@@ -1,0 +1,39 @@
+%body#show
+
+.container
+  .container
+    .row
+      .col-md-6
+        .thumbnail
+          .caption
+            %h1 Setting up your account is free.   
+            %br
+            %h4 No one knows your program better than you. 
+            %p.text-muted Get Ahead is designed to simplify adiministrative work, and let you get back to get back to what you do best, caring for kids and families. With account ownership, you can manage your account information and track reviews.
+
+            %h4 The process
+            %p.text-muted Fill out the form to the right with a valid email and phone number for your program, and we'll contact you to verify your identity.
+
+            %h4 Managing several programs?
+            %p.text-muted Not a problem. Mention each program you manage in your email, and we'll allow you to manage each one.
+
+           
+      .col-md-6
+        .thumbnail
+          .caption
+            %h1 Claim your program
+            %br
+            -if current_user
+              =form_for(@notification, html: { class: 'form-horizontal' }) do |f|
+                =f.hidden_field :to, value: @getahead
+                =f.hidden_field :from, value: current_user.email
+                %h4=f.label "Please provide a valid phone number for your program"
+                =f.text_field :subject, class: 'form-control', placeholder: "303.333.3333"
+                %h4=f.label "Message"
+                =f.text_area :body, class: 'form-control', placeholder: "Tell us about the programs you're managing."
+                %br
+                =f.submit "Send", class: "btn btn-block", href: new_notification_path, id: "btn-custom"
+            -else
+              %h4.text-center Sign in to send an email
+              %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
+

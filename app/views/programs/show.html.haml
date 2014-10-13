@@ -1,10 +1,10 @@
 %body#show
-.clearfix-buffer
 .container
   .container-fluid
-  .jumbotron
+  .jumbotron#home
     %h1= @program.facility_name
-    =button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-warning btn-lg"
+    =button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-lg", id: "btn-custom"
+    =link_to "Is this your program?", claim_your_programs_path, class: "btn btn-lg pull-right", id: "btn-custom"
   .row
     .col-md-4
       .thumbnail
@@ -30,8 +30,9 @@
                   %h4=f.label "Message"
                   =f.text_area :body, class: 'form-control', placeholder: "Your Message"
                   =f.hidden_field :to, value: @program.email
+                  =f.hidden_field :from, value: current_user.email
                   %br
-                  =f.submit "Send", class: "btn btn-block btn-warning", href: new_notification_path
+                  =f.submit "Send", class: "btn btn-block", href: new_notification_path, id: "btn-custom"
               -else
                 %h4.text-center Sign in to send an email
                 %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google

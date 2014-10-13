@@ -5,17 +5,18 @@ class FavoritesController < ApplicationController
     @favorites_list = favorite.programs
   end
 
-  def destroy
-  end
-
   def add_program
     program = Program.find(params[:program_id])
-    favorite.programs << program
-    if current_user
-      favorite.user = current_user
-      favorite.save
+    unless already_a_favorite(program)
+      favorite.programs << program
+    
+      if current_user
+        favorite.user = current_user
+        favorite.save
+      end
+      redirect_to :back, notice: "#{program.facility_name} has been added to your favorites!"
     end
-    redirect_to :back, notice: "#{program.facility_name} has been added to your favorites!"
+    redirect_to :back, alert: "You've already favorited #{program.facility_name}."
   end
 
   def remove_program
@@ -25,6 +26,10 @@ class FavoritesController < ApplicationController
   end
 
   private
+
+    def already_a_favorite(program)
+      favorite.programs.include?(program)
+    end
 
     def favorite_params
       params.require(:favorite).permit(:user_id, :program_id)

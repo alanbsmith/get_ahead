@@ -16,7 +16,6 @@ class ProgramsController < ApplicationController
   end
 
   def index
-    # @q  = Program.search(params[:q])
     @programs = Program.all
     @hash = Gmaps4rails.build_markers(@programs) do |program, marker|
       marker.lat program.latitude
@@ -34,6 +33,11 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
     @program.update(program_params)
     redirect_to :back, notice: "Your program has been successfully updated"
+  end
+
+  def claim_your
+    @notification = Notification.new
+    @getahead = "a.bax.smith@gmail.com"
   end
 
 private

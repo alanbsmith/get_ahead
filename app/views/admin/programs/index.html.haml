@@ -1,19 +1,41 @@
 %body#show
 .clearfix-buffer
 .container
-  .jumbotron
+  .jumbotron#home
     %h1 Your Programs
   .row
-    -@programs.each do |program|
-      -unless there_are_no_openings?(program)
-        .col-md-4
-          .thumbnail
-            .caption
-              %h4=program.facility_name
-              %h5="Program Type: #{program.program_type}"
-              %h5="Enrollment: #{program.enrollment}"
-            .caption.text-center
-              =link_to "View", program_path(program)
-              =link_to "Edit", edit_admin_program_path(program)
-              =link_to "Remove", admin_program_path(program), method: "destroy"
+  -@programs.each_with_index do |program, i|
+    -unless there_are_no_openings?(program)
+      .col-md-4
+        .thumbnail#admin
+          .caption.text-center
+            %h3=link_to program.facility_name, program_path(program) 
+            =link_to "View |", program_path(program)
+            =link_to "Edit |", edit_admin_program_path(program)
+            =link_to "Remove", admin_program_path(program), method: "delete"
+          .caption
+            %ul.nav.nav-tabs{:role => "tablist"}
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#description#{i}", role: "tab"}
+                  %h5 Description
+              %li
+                %a{"data-toggle" => "tab", :href => "#information#{i}", role: "tab"}
+                  %h5 Information
+              %li
+                %a{"data-toggle" => "tab", :href => "#contact#{i}", role: "tab"}
+                  %h5 Contact
+         
+            .tab-content
+              .tab-pane.active{id: "description#{i}"}
+                = truncate(program.description, length: 150)
+              .tab-pane{id: "information#{i}"}
+                %h5= "Program Type: #{program.program_type}"
+                %h5= "Enrollment: #{program.enrollment}"
+                %h5= "#{program.street_address1} #{program.street_address2}"
+                %h5="#{program.city}, #{program.state} #{program.zipcode}"
+              .tab-pane{id: "contact#{i}"}
+                %h5= "Phone: #{program.phone} #{program.ext}"
+                %h5= "Fax: #{program.fax}"
+                %h5= link_to "Program Website", '#'
+
 

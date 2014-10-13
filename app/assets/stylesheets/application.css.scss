@@ -47,6 +47,12 @@
    height: 200px; 
 }
 
+.jumbotron#home {
+   background: rgba(255, 255, 255, 0.5);
+   height: 250px; 
+}
+
+
 .image {
   content: url("http://superheroesofvictoria.org/wp-content/uploads/2014/02/superhero-kids-day.png");
   width: 100%;
@@ -54,7 +60,22 @@
 }
 
 .thumbnail {
+   background: rgba(255, 255, 255, 1.0);
+}
+
+.thumbnail#favorites {
    background: rgba(255, 255, 255, 0.95);
+   height: 275px;
+}
+
+.thumbnail#index {
+   background: rgba(255, 255, 255, 0.9);
+   height: 275px;
+}
+
+.thumbnail#admin {
+   background: rgba(255, 255, 255, 0.9);
+   height: 300px;
 }
 
 .nav-tabs {
@@ -75,6 +96,10 @@
     }
 }
 
+.btn#btn-custom {
+  background-color: #134C8C;
+  color: white;
+}
 
  body#homepage {
   background-image: url("http://i.huffpost.com/gen/1413386/thumbs/o-BLACK-STUDENTS-facebook.jpg");

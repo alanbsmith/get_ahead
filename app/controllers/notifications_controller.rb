@@ -2,9 +2,9 @@ class NotificationsController < ApplicationController
 
   def create
     @notification = Notification.new(notification_params)
-    UserNotifier.contact_program(
+    UserNotifier.notify(
                                  @notification.to,
-                                 current_user.email,
+                                 @notification.from,
                                  @notification.subject,
                                  @notification.body
                                  ).deliver

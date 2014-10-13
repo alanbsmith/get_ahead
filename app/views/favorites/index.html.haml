@@ -1,26 +1,37 @@
 %body#favorites
+.clearfix-buffer
 .container
-  %h1 Your Favorites
+  .jumbotron#home
+    %h1 Your Favorites
   .row
-    .col-md-3
-      %h1 Your Favorites
-      - @favorites_list.each_with_index do |program, i|
-        .thumbnail
-          %h4= program.facility_name
-          %a.caption
-            =link_to "", program_path(program), class: "glyphicon glyphicon-eye-open"
-            =link_to "", root_path, class: "glyphicon glyphicon-envelope"
-            =link_to "", remove_program_favorite_path(favorite, program_id: program.id), method: "post", class: "glyphicon glyphicon-remove"
-            %table
-              %thead
-                %tr
-                  %th Program Type
-                  %th Enrollment
-              %tbody
-                %tr.text-center
-                  %td= program.program_type
-                  %td= program.enrollment
-
-          
-
-  
+    - @favorites_list.each_with_index do |program, i|
+      .col-md-4
+        .thumbnail#favorites
+          .caption
+            =link_to "", remove_program_favorite_path(favorite, program_id: program.id), method: "post", class: "glyphicon glyphicon-remove pull-right"
+            %h3=link_to program.facility_name, program_path(program) 
+        
+            %ul.nav.nav-tabs{:role => "tablist"}
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#description#{i}", role: "tab"}
+                  %h5 Description
+              %li
+                %a{"data-toggle" => "tab", :href => "#information#{i}", role: "tab"}
+                  %h5 Information
+              %li
+                %a{"data-toggle" => "tab", :href => "#contact#{i}", role: "tab"}
+                  %h5 Contact Info
+         
+            .tab-content
+              .tab-pane.active{id: "description#{i}"}
+                = truncate(program.description, length: 150)
+              .tab-pane{id: "information#{i}"}
+                %h5= "Program Type: #{program.program_type}"
+                %h5= "Enrollment: #{program.enrollment}"
+                %h5= "#{program.street_address1} #{program.street_address2}"
+                %h5="#{program.city}, #{program.state} #{program.zipcode}"
+              .tab-pane{id: "contact#{i}"}
+                %h5= "Phone: #{program.phone} #{program.ext}"
+                %h5= "Fax: #{program.fax}"
+                %h5= link_to "Program Website", '#'
+                %h5=link_to "Send an email", program_path(program)
