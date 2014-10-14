@@ -2,8 +2,6 @@
 .container
   .jumbotron#home
     %h1 Head Start Programs
-    / = search_form_for @q do |f|
-    /   \#{f.search_field :facility_name_cont, class: "form-control", placeholder: "Seach by name"}
 
   -@programs.each_with_index do |program, i|
     -unless there_are_no_openings?(program)
@@ -17,7 +15,7 @@
                   %h5 Description
               %li
                 %a{"data-toggle" => "tab", :href => "#information#{i}", role: "tab"}
-                  %h5 Information
+                  %h5 At a Glance
               %li
                 %a{"data-toggle" => "tab", :href => "#contact#{i}", role: "tab"}
                   %h5 Contact
@@ -35,8 +33,3 @@
                 %h5= "Fax: #{program.fax}"
                 %h5= link_to "Program Website", '#'
                 %h5=link_to "Send an email", program_path(program)
-
-<script="text/javascript">
-$(".thumbnail#favorites").click(function() {
-alert("It's working!");
-});

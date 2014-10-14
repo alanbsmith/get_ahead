@@ -7,7 +7,9 @@ class FavoritesController < ApplicationController
 
   def add_program
     program = Program.find(params[:program_id])
-    unless already_a_favorite(program)
+    if already_a_favorite(program)
+      redirect_to :back, alert: "You've already favorited #{program.facility_name}."
+    else
       favorite.programs << program
     
       if current_user
@@ -16,7 +18,6 @@ class FavoritesController < ApplicationController
       end
       redirect_to :back, notice: "#{program.facility_name} has been added to your favorites!"
     end
-    redirect_to :back, alert: "You've already favorited #{program.facility_name}."
   end
 
   def remove_program

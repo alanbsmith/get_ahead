@@ -2,7 +2,7 @@ class Admin::ProgramsController<AdminController
   before_action :find_program, only: [:edit, :update, :destroy, :show]
 
   def index
-    @programs = Program.all
+    @programs = current_user.programs
   end
 
   def show

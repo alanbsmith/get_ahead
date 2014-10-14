@@ -18,6 +18,8 @@ gem 'ransack'
 gem 'mail_form'
 gem 'figaro'
 gem 'gmaps4rails', '~> 2.1.2'
+gem 'execjs'
+gem 'therubyracer'
 
 group :development, :test do
   gem 'pry'
