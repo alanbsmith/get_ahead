@@ -5,13 +5,13 @@
 #   gem 'sqlite3'
 #
 development:
-  encoding: unicode
   adapter: postgresql
+  encoding: UTF-8
+  database: get_ahead_databse
+  host: localhost
   pool: 5
-  timeout: 5000
-  database: get_ahead_database
-  username:
-  password:
+  username: deployment
+  password: password1
 
 
 # Warning: The database defined as "test" will be erased and
@@ -19,7 +19,18 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: postgresql
-  pool: 5
-  timeout: 5000
-  host: localhost
+  encoding: UTF-8
   database: get_ahead_test_database
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
+
+production:
+  adapter: postgresql
+  encoding: UTF-8
+  database: get_ahead
+  host: localhost
+  pool: 5
+  username: deployment
+  password: password1
