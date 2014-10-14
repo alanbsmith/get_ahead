@@ -42,7 +42,9 @@ class Admin::ProgramsController<AdminController
                                     :program_type,
                                     :enrollment,
                                     :description,
-                                    :philosophy
+                                    :philosophy,
+                                    :latitude,
+                                    :longitude
                                    )
   end
 end

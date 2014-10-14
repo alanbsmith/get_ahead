@@ -56,9 +56,7 @@ private
                                     :program_type,
                                     :enrollment,
                                     :description,
-                                    :philosophy,
-                                    :latitude,
-                                    :longitude
+                                    :philosophy
                                     )
   end
 end
