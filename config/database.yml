@@ -7,11 +7,11 @@
 development:
   adapter: postgresql
   encoding: UTF-8
-  database: get_ahead_databse
+  database: get_ahead_database
   host: localhost
   pool: 5
-  username: deployment
-  password: password1
+  username:
+  password:
 
 
 # Warning: The database defined as "test" will be erased and
@@ -23,42 +23,8 @@ test:
   database: get_ahead_test_database
   host: localhost
   pool: 5
-  username: deployment
-  password: password1
-
-production:
-  adapter: postgresql
-  encoding: UTF-8
-  database: get_ahead
-  host: localhost
-  pool: 5
-  username: deployment
-  password: password1
--------------------------------------------------------
-
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-development:
-  adapter: postgresql
-  encoding: UTF-8
-  database: get_ahead_databse
-  host: localhost
-  pool: 5
-  username: deployment
-  password: password1
-
-test:
-  adapter: postgresql
-  encoding: UTF-8
-  database: get_ahead_test_database
-  host: localhost
-  pool: 5
-  username: deployment
-  password: password1
+  username:
+  password:
 
 production:
   adapter: postgresql

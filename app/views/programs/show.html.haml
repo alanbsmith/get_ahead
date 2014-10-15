@@ -32,7 +32,7 @@
                   =f.hidden_field :to, value: @program.email
                   =f.hidden_field :from, value: current_user.email
                   %br
-                  =f.submit "Send", class: "btn btn-block", href: new_notification_path, id: "btn-custom"
+                  =f.submit "Send", class: "btn btn-block", id: "btn-custom"
               -else
                 %h4.text-center Sign in to send an email
                 %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
@@ -65,5 +65,35 @@
               =@program.description
             #philosophy.tab-pane
               =@program.philosophy
-            #settings.tab-pane Five star
-
+            #settings.tab-pane
+              .caption
+                %h1 Leave a Review
+                -if current_user
+                  =form_for(@review, html: { class: 'form-horizontal' }) do |f|
+                    =f.label      :title
+                    =f.text_field :title, class: "form-control", placeholder: "My kids love it here." 
+                    =f.label      "Message"
+                    =f.text_area  :description, class: "form-control", placeholder: "The staff is always so friendly!"
+                    =f.hidden_field :program_id, value: @program.id
+                    =f.hidden_field :user_id, value: current_user.id
+                    %br
+                    =f.submit "Submit", class: "btn btn-block", id: "btn-custom"
+                -else
+                  %h4 You need to sign in to leave a review.
+                  %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
+              %h1 Reviews
+              -unless @program.reviews.empty?
+                -@program.reviews.each do |review|
+                  .thumbnail
+                    .row
+                      .col-md-4
+                        .caption
+                          %img.profile-image.img-circle{:src => review.user.image}
+                          %h4=review.user.name
+                          %h5="Member Since: #{review.user.created_at.strftime("%b %d, %Y")}"
+                      .col-md-8
+                        %h4.text-muted=review.created_at.strftime("%b %d, %Y")
+                        %h3=review.title
+                        %p=review.description
+              -else
+                %h4.text-muted There are no reviews for this program.

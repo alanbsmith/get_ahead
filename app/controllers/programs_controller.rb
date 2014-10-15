@@ -27,6 +27,7 @@ class ProgramsController < ApplicationController
     @program      = Program.find(params[:id])
     @favorite     = favorite
     @notification = Notification.new
+    @review       = Review.new
   end
 
   def update
