@@ -89,7 +89,7 @@
                   %h4 You need to sign in to leave a review.
                   %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
               %h1 Reviews
-              -unless @program.reviews
+              -if @program.reviews
                 -@program.reviews.each do |review|
                   .thumbnail
                     .row
