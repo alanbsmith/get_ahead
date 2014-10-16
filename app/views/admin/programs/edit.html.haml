@@ -1,15 +1,30 @@
 %body#show
 .clearfix-buffer
 .container
+  .jumbotron#home
+    %h1= @program.facility_name
   .row
-    .col-md-6.col-md-offset-3
+    .col-md-3
+      .thumbnail.affix
+        %h3.text-center Upload Ratings PDF
+        -if @current_rating
+          %p.text-center= "Current PDF: #{@current_rating.name}"
+        -else
+          %h5.text-center There is no PDF uploaded currently
+        = form_for @rating, html: {multipart: true} do |f|
+          = f.label :name, "File Label"
+          = f.text_field :name, class: "form-control"
+          = f.file_field :attachment
+          = f.hidden_field :program_id, value: @program.id
+          %br
+          = f.submit "Upload", :class => "btn btn-block", id: "btn-custom"
+    .col-md-6.col-md-offset-1
       .thumbnail
-        %h1= @program.facility_name
+        %h1.text-center Update your information
         = form_for [:admin, @program] do |f|
           %ul
           - @program.errors.full_messages.each do |error|
             %li= error
-
           =f.label "School Name"          
           =f.text_field :facility_name, class: 'form-control'
           =f.label "Address Line 1"          
@@ -31,9 +46,9 @@
           =f.label :enrollment          
           =f.text_field :enrollment, class: 'form-control'
           =f.label :description          
-          =f.text_area :description, class: 'form-control'
+          =f.text_area :description, class: 'form-control', rows: "10"
           =f.label :philosophy         
-          =f.text_area :philosophy, class: 'form-control'
+          =f.text_area :philosophy, class: 'form-control', rows: "10"
           %br
           =f.submit "Update your information", class: 'btn btn-block btn-lg', id: "btn-custom"
 .clearfix-buffer

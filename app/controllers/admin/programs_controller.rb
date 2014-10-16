@@ -5,10 +5,9 @@ class Admin::ProgramsController<AdminController
     @programs = current_user.programs
   end
 
-  def show
-  end
-
   def edit
+    @current_rating = @program.ratings.last
+    @rating = Rating.new
   end
 
   def update

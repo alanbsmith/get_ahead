@@ -20,7 +20,7 @@ gem 'figaro'
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'execjs'
 gem 'therubyracer'
-gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry'

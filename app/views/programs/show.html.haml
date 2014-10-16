@@ -28,7 +28,7 @@
                   %h4=f.label :subject
                   =f.text_field :subject, class: 'form-control', placeholder: "Hello"
                   %h4=f.label "Message"
-                  =f.text_area :body, class: 'form-control', placeholder: "Your Message"
+                  =f.text_area :body, class: 'form-control', placeholder: "Your Message", rows: "6"
                   =f.hidden_field :to, value: @program.email
                   =f.hidden_field :from, value: current_user.email
                   %br
@@ -67,13 +67,19 @@
               =@program.philosophy
             #settings.tab-pane
               .caption
+                -if @program.rating != nil
+                  %h1=link_to "View Qualistar Ratings", @program.rating.attachment, :target => "_blank"
+                -else
+                  %h1 Ratings 
+                  %h4.text-muted There are no Qualistar Ratings for this program.
+
                 %h1 Leave a Review
                 -if current_user
                   =form_for(@review, html: { class: 'form-horizontal' }) do |f|
                     =f.label      :title
                     =f.text_field :title, class: "form-control", placeholder: "My kids love it here." 
                     =f.label      "Message"
-                    =f.text_area  :description, class: "form-control", placeholder: "The staff is always so friendly!"
+                    =f.text_area  :description, class: "form-control", placeholder: "The staff is always so friendly!", rows: "8"
                     =f.hidden_field :program_id, value: @program.id
                     =f.hidden_field :user_id, value: current_user.id
                     %br
@@ -97,3 +103,4 @@
                         %p=review.description
               -else
                 %h4.text-muted There are no reviews for this program.
+.clearfix-buffer

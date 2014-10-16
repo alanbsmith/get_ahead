@@ -30,7 +30,7 @@
                 %h4=f.label "Please provide a valid phone number for your program"
                 =f.text_field :subject, class: 'form-control', placeholder: "303.333.3333"
                 %h4=f.label "Message"
-                =f.text_area :body, class: 'form-control', placeholder: "Tell us about the programs you're managing."
+                =f.text_area :body, class: 'form-control', placeholder: "Tell us about the programs you're managing.", rows: "8"
                 %br
                 =f.submit "Send", class: "btn btn-block", href: new_notification_path, id: "btn-custom"
             -else

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root "pages#home"
 
+  resources :ratings, only: [:index, :new, :create]
   resources :reviews, only: [:create]
   resources :notifications, only: [:new, :create]
   resources :programs, only: [:index, :show] do
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :programs, only: [:index, :show, :edit, :update, :destroy]
+    resources :programs, only: [:index, :edit, :update, :destroy]
   end
 
   resources :pages, only: [:home] do
