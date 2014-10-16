@@ -27,4 +27,13 @@ describe "viewing favorites", type: :feature do
     click_link("")
     expect(page).to_not have_content("#{@program.facility_name}")
   end
+
+  it "cannot add multiples of the same program to favorites" do
+    visit programs_path
+    click_link("")
+    expect(page).to have_content("#{@program.facility_name} has been added to your favorites")
+
+    click_link("")
+    expect(page).to have_content("You've already favorited #{@program.facility_name}")
+  end
 end
