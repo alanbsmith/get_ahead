@@ -41,7 +41,7 @@
               %h5= "#{@program.street_address1} #{@program.street_address2}"
               %h5= "#{@program.city} #{@program.state} #{@program.zipcode}"
             #contact.tab-pane
-              %h4=link_to "Website", "http://#{@program.url}"
+              %h4=link_to "Website", @program.url
               %h4 Phone
               %h5= "#{@program.phone} #{@program.ext}"
               %h4 Fax
