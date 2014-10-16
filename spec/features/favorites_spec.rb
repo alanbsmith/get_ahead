@@ -4,6 +4,7 @@ describe "viewing favorites", type: :feature do
 
   before(:each) do
     @program = FactoryGirl.create(:program)
+    @user    = FactoryGirl.create(:user)
   end
 
   it "can add programs to favorites" do

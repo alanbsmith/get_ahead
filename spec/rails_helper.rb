@@ -25,6 +25,7 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
 
+  config.include OauthSpecHelper
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -45,3 +46,11 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.add_mock(:google_oauth2, {
+  :uid      => '12345',
+  :provider => :google_oauth2,
+  :name     => 'John Doe',
+  :email    => 'jdoe@example.com'
+})
