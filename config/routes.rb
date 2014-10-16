@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   resources :pages, only: [:home] do
     collection do
       get :map
-      get :eligibility
     end
   end
 

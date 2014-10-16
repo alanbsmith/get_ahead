@@ -12,8 +12,4 @@ class PagesController < ApplicationController
       marker.infowindow program.facility_name
     end
   end
-
-  def eligibility
-  end
-  
 end
