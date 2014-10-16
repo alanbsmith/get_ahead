@@ -21,6 +21,7 @@ gem 'gmaps4rails', '~> 2.1.2'
 gem 'execjs'
 gem 'therubyracer'
 gem 'carrierwave'
+gem 'seed_dump'
 
 group :development, :test do
   gem 'pry'
