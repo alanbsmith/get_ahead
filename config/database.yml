@@ -10,8 +10,8 @@ development:
   database: get_ahead_database
   host: localhost
   pool: 5
-  username: deployment
-  password: password1
+  username:
+  password:
 
 
 # Warning: The database defined as "test" will be erased and
@@ -23,8 +23,8 @@ test:
   database: get_ahead_test_database
   host: localhost
   pool: 5
-  username: deployment
-  password: password1
+  username:
+  password:
 
 production:
   adapter: postgresql
