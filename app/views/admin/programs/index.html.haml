@@ -37,6 +37,6 @@
                   .tab-pane{id: "contact#{i}"}
                     %h5= "Phone: #{program.phone} #{program.ext}"
                     %h5= "Fax: #{program.fax}"
-                    %h5= link_to "Program Website", '#'
+                    %h5= link_to "Program Website", program.url
     -else
       %h1 You have no programs.
