@@ -4,7 +4,7 @@
   .jumbotron#home
     %h1= @program.facility_name
     =button_to "Add to Favorites", add_program_favorite_path(favorite, program_id: @program.id), class: "btn btn-lg", id: "btn-custom"
-    =link_to "Is this your program?", claim_your_programs_path, class: "btn btn-lg pull-right", id: "btn-custom"
+    %h4=link_to "Is this your program?", claim_your_programs_path, class: "pull-right"
   .row
     .col-md-4
       .thumbnail
@@ -14,8 +14,8 @@
             %a{"data-toggle" => "tab", :href => "#email", role: "tab"}
               %h4 Email
           %li
-            %a{"data-toggle" => "tab", :href => "#phone", role: "tab"}
-              %h4 Phone & Fax
+            %a{"data-toggle" => "tab", :href => "#contact", role: "tab"}
+              %h4 Contact Info
           %li
             %a{"data-toggle" => "tab", :href => "#messages", role: "tab"}
               %h4 Address
@@ -40,7 +40,8 @@
               %h4 Address
               %h5= "#{@program.street_address1} #{@program.street_address2}"
               %h5= "#{@program.city} #{@program.state} #{@program.zipcode}"
-            #phone.tab-pane
+            #contact.tab-pane
+              %h4=link_to "Website", "http://#{@program.url}"
               %h4 Phone
               %h5= "#{@program.phone} #{@program.ext}"
               %h4 Fax

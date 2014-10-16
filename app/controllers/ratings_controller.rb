@@ -10,7 +10,7 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to :back, notice: "Your PDF has been uploaded!"
     else
-      render :new
+      redirect_to :back, alert: "There was a problem uploading your PDF."
     end
   end
 

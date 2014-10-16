@@ -5,7 +5,7 @@
     %h1= @program.facility_name
   .row
     .col-md-3
-      .thumbnail.affix
+      .thumbnail
         %h3.text-center Upload Ratings PDF
         -if @current_rating
           %p.text-center= "Current PDF: #{@current_rating.name}"
@@ -25,6 +25,8 @@
           %ul
           - @program.errors.full_messages.each do |error|
             %li= error
+          =f.label :url
+          =f.text_field :url, class: 'form-control'
           =f.label "School Name"          
           =f.text_field :facility_name, class: 'form-control'
           =f.label "Address Line 1"          

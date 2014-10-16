@@ -8,6 +8,7 @@
       .col-md-4
         .thumbnail#index
           .caption
+            %h4=link_to "", add_program_favorite_path(favorite, program_id: program.id), method: "post", class: "glyphicon glyphicon-star-empty pull-right"
             %h3=link_to program.facility_name, program_path(program) 
             %ul.nav.nav-tabs{:role => "tablist"}
               %li.active
@@ -31,5 +32,5 @@
               .tab-pane{id: "contact#{i}"}
                 %h5= "Phone: #{program.phone} #{program.ext}"
                 %h5= "Fax: #{program.fax}"
-                %h5= link_to "Program Website", '#'
+                %h5= link_to "Program Website", "http://#{program.url}"
                 %h5=link_to "Send an email", program_path(program)
