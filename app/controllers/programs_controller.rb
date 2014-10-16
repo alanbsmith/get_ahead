@@ -24,10 +24,11 @@ class ProgramsController < ApplicationController
   end
 
   def show
-    @program      = Program.find(params[:id])
-    @favorite     = favorite
-    @notification = Notification.new
-    @review       = Review.new
+    @program        = Program.find(params[:id])
+    @favorite       = favorite
+    @notification   = Notification.new
+    @review         = Review.new
+    @current_rating = @program.ratings.last
   end
 
   def update

@@ -67,10 +67,10 @@
               =@program.philosophy
             #settings.tab-pane
               .caption
-                -if @program.rating != nil
-                  %h1=link_to "View Qualistar Ratings", @program.rating.attachment, :target => "_blank"
+                %h1 Ratings 
+                -if @current_rating
+                  %h4=link_to "View Qualistar Ratings", @current_rating.attachment_url.to_s, :target => "_blank"
                 -else
-                  %h1 Ratings 
                   %h4.text-muted There are no Qualistar Ratings for this program.
 
                 %h1 Leave a Review
@@ -88,7 +88,7 @@
                   %h4 You need to sign in to leave a review.
                   %a{ :href => "/auth/google_oauth2", class: "btn btn-danger btn-block" } Sign in with Google
               %h1 Reviews
-              -unless @program.reviews.empty?
+              -unless @program.reviews
                 -@program.reviews.each do |review|
                   .thumbnail
                     .row
